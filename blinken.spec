@@ -5,23 +5,20 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : blinken
-Version  : 18.08.0
-Release  : 1
-URL      : https://download.kde.org/stable/applications/18.08.0/src/blinken-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/blinken-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/blinken-18.08.0.tar.xz.sig
+Version  : 18.12.2
+Release  : 2
+URL      : https://download.kde.org/stable/applications/18.12.2/src/blinken-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/blinken-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/blinken-18.12.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
-Requires: blinken-bin
-Requires: blinken-data
-Requires: blinken-license
-Requires: blinken-locales
+Requires: blinken-bin = %{version}-%{release}
+Requires: blinken-data = %{version}-%{release}
+Requires: blinken-license = %{version}-%{release}
+Requires: blinken-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : kcrash-dev
-BuildRequires : kdbusaddons-dev
-BuildRequires : kguiaddons-dev
 BuildRequires : phonon-dev
 
 %description
@@ -33,8 +30,8 @@ to the user's fonts location.
 %package bin
 Summary: bin components for the blinken package.
 Group: Binaries
-Requires: blinken-data
-Requires: blinken-license
+Requires: blinken-data = %{version}-%{release}
+Requires: blinken-license = %{version}-%{release}
 
 %description bin
 bin components for the blinken package.
@@ -73,26 +70,27 @@ locales components for the blinken package.
 
 
 %prep
-%setup -q -n blinken-18.08.0
+%setup -q -n blinken-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535165346
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1549859236
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535165346
+export SOURCE_DATE_EPOCH=1549859236
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/blinken
-cp COPYING %{buildroot}/usr/share/doc/blinken/COPYING
-cp COPYING.DOC %{buildroot}/usr/share/doc/blinken/COPYING.DOC
+mkdir -p %{buildroot}/usr/share/package-licenses/blinken
+cp COPYING %{buildroot}/usr/share/package-licenses/blinken/COPYING
+cp COPYING-sjfonts %{buildroot}/usr/share/package-licenses/blinken/COPYING-sjfonts
+cp COPYING.DOC %{buildroot}/usr/share/package-licenses/blinken/COPYING.DOC
 pushd clr-build
 %make_install
 popd
@@ -131,7 +129,10 @@ popd
 /usr/share/doc/HTML/ca/blinken/blinken1.png
 /usr/share/doc/HTML/ca/blinken/blinken2.png
 /usr/share/doc/HTML/ca/blinken/blinken_accesskeys.png
+/usr/share/doc/HTML/ca/blinken/blinken_helpbutton.png
+/usr/share/doc/HTML/ca/blinken/blinken_highscoresbutton.png
 /usr/share/doc/HTML/ca/blinken/blinken_nickprompt.png
+/usr/share/doc/HTML/ca/blinken/blinken_quitbutton.png
 /usr/share/doc/HTML/ca/blinken/index.cache.bz2
 /usr/share/doc/HTML/ca/blinken/index.docbook
 /usr/share/doc/HTML/de/blinken/blinken1.png
@@ -184,9 +185,10 @@ popd
 /usr/share/doc/HTML/uk/blinken/index.docbook
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/blinken/COPYING
-/usr/share/doc/blinken/COPYING.DOC
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/blinken/COPYING
+/usr/share/package-licenses/blinken/COPYING-sjfonts
+/usr/share/package-licenses/blinken/COPYING.DOC
 
 %files locales -f blinken.lang
 %defattr(-,root,root,-)
