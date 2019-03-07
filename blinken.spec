@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : blinken
-Version  : 18.12.2
-Release  : 3
-URL      : https://download.kde.org/stable/applications/18.12.2/src/blinken-18.12.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.2/src/blinken-18.12.2.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.2/src/blinken-18.12.2.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 18.12.3
+Release  : 4
+URL      : https://download.kde.org/stable/applications/18.12.3/src/blinken-18.12.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.3/src/blinken-18.12.3.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.3/src/blinken-18.12.3.tar.xz.sig
+Summary  : Memory Enhancement Game
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
 Requires: blinken-bin = %{version}-%{release}
@@ -19,9 +19,6 @@ Requires: blinken-license = %{version}-%{release}
 Requires: blinken-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : kcrash-dev
-BuildRequires : kdbusaddons-dev
-BuildRequires : kguiaddons-dev
 BuildRequires : phonon-dev
 
 %description
@@ -73,22 +70,23 @@ locales components for the blinken package.
 
 
 %prep
-%setup -q -n blinken-18.12.2
+%setup -q -n blinken-18.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549877988
+export SOURCE_DATE_EPOCH=1551981909
 mkdir -p clr-build
 pushd clr-build
+export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1549877988
+export SOURCE_DATE_EPOCH=1551981909
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/blinken
 cp COPYING %{buildroot}/usr/share/package-licenses/blinken/COPYING
