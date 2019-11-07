@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : blinken
-Version  : 19.08.2
-Release  : 13
-URL      : https://download.kde.org/stable/applications/19.08.2/src/blinken-19.08.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.08.2/src/blinken-19.08.2.tar.xz
-Source1 : https://download.kde.org/stable/applications/19.08.2/src/blinken-19.08.2.tar.xz.sig
+Version  : 19.08.3
+Release  : 14
+URL      : https://download.kde.org/stable/applications/19.08.3/src/blinken-19.08.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.3/src/blinken-19.08.3.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.3/src/blinken-19.08.3.tar.xz.sig
 Summary  : Memory Enhancement Game
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -70,14 +70,14 @@ locales components for the blinken package.
 
 
 %prep
-%setup -q -n blinken-19.08.2
+%setup -q -n blinken-19.08.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570731228
+export SOURCE_DATE_EPOCH=1573156052
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -94,12 +94,12 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1570731228
+export SOURCE_DATE_EPOCH=1573156052
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/blinken
-cp COPYING %{buildroot}/usr/share/package-licenses/blinken/COPYING
-cp COPYING-sjfonts %{buildroot}/usr/share/package-licenses/blinken/COPYING-sjfonts
-cp COPYING.DOC %{buildroot}/usr/share/package-licenses/blinken/COPYING.DOC
+cp %{_builddir}/blinken-19.08.3/COPYING %{buildroot}/usr/share/package-licenses/blinken/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
+cp %{_builddir}/blinken-19.08.3/COPYING-sjfonts %{buildroot}/usr/share/package-licenses/blinken/e37be2b6aadc8073c4a4aa68ac29a16b19d03b74
+cp %{_builddir}/blinken-19.08.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/blinken/1bd373e4851a93027ba70064bd7dbdc6827147e1
 pushd clr-build
 %make_install
 popd
@@ -195,9 +195,9 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/blinken/COPYING
-/usr/share/package-licenses/blinken/COPYING-sjfonts
-/usr/share/package-licenses/blinken/COPYING.DOC
+/usr/share/package-licenses/blinken/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
+/usr/share/package-licenses/blinken/1bd373e4851a93027ba70064bd7dbdc6827147e1
+/usr/share/package-licenses/blinken/e37be2b6aadc8073c4a4aa68ac29a16b19d03b74
 
 %files locales -f blinken.lang
 %defattr(-,root,root,-)
