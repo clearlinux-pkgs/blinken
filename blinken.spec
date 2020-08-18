@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : blinken
-Version  : 20.04.2
-Release  : 21
-URL      : https://download.kde.org/stable/release-service/20.04.2/src/blinken-20.04.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.2/src/blinken-20.04.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.2/src/blinken-20.04.2.tar.xz.sig
+Version  : 20.08.0
+Release  : 22
+URL      : https://download.kde.org/stable/release-service/20.08.0/src/blinken-20.08.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.08.0/src/blinken-20.08.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.08.0/src/blinken-20.08.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -70,15 +70,15 @@ locales components for the blinken package.
 
 
 %prep
-%setup -q -n blinken-20.04.2
-cd %{_builddir}/blinken-20.04.2
+%setup -q -n blinken-20.08.0
+cd %{_builddir}/blinken-20.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1591888565
+export SOURCE_DATE_EPOCH=1597770232
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -90,16 +90,16 @@ export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1591888565
+export SOURCE_DATE_EPOCH=1597770232
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/blinken
-cp %{_builddir}/blinken-20.04.2/COPYING %{buildroot}/usr/share/package-licenses/blinken/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
-cp %{_builddir}/blinken-20.04.2/COPYING-sjfonts %{buildroot}/usr/share/package-licenses/blinken/e37be2b6aadc8073c4a4aa68ac29a16b19d03b74
-cp %{_builddir}/blinken-20.04.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/blinken/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/blinken-20.08.0/COPYING %{buildroot}/usr/share/package-licenses/blinken/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
+cp %{_builddir}/blinken-20.08.0/COPYING-sjfonts %{buildroot}/usr/share/package-licenses/blinken/e37be2b6aadc8073c4a4aa68ac29a16b19d03b74
+cp %{_builddir}/blinken-20.08.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/blinken/1bd373e4851a93027ba70064bd7dbdc6827147e1
 pushd clr-build
 %make_install
 popd
@@ -138,10 +138,7 @@ popd
 /usr/share/doc/HTML/ca/blinken/blinken1.png
 /usr/share/doc/HTML/ca/blinken/blinken2.png
 /usr/share/doc/HTML/ca/blinken/blinken_accesskeys.png
-/usr/share/doc/HTML/ca/blinken/blinken_helpbutton.png
-/usr/share/doc/HTML/ca/blinken/blinken_highscoresbutton.png
 /usr/share/doc/HTML/ca/blinken/blinken_nickprompt.png
-/usr/share/doc/HTML/ca/blinken/blinken_quitbutton.png
 /usr/share/doc/HTML/ca/blinken/index.cache.bz2
 /usr/share/doc/HTML/ca/blinken/index.docbook
 /usr/share/doc/HTML/de/blinken/blinken1.png
@@ -165,6 +162,12 @@ popd
 /usr/share/doc/HTML/es/blinken/index.docbook
 /usr/share/doc/HTML/et/blinken/index.cache.bz2
 /usr/share/doc/HTML/et/blinken/index.docbook
+/usr/share/doc/HTML/fr/blinken/blinken1.png
+/usr/share/doc/HTML/fr/blinken/blinken2.png
+/usr/share/doc/HTML/fr/blinken/blinken_accesskeys.png
+/usr/share/doc/HTML/fr/blinken/blinken_nickprompt.png
+/usr/share/doc/HTML/fr/blinken/index.cache.bz2
+/usr/share/doc/HTML/fr/blinken/index.docbook
 /usr/share/doc/HTML/it/blinken/index.cache.bz2
 /usr/share/doc/HTML/it/blinken/index.docbook
 /usr/share/doc/HTML/nl/blinken/index.cache.bz2
@@ -175,9 +178,7 @@ popd
 /usr/share/doc/HTML/pt_BR/blinken/blinken2.png
 /usr/share/doc/HTML/pt_BR/blinken/blinken_accesskeys.png
 /usr/share/doc/HTML/pt_BR/blinken/blinken_helpbutton.png
-/usr/share/doc/HTML/pt_BR/blinken/blinken_highscoresbutton.png
 /usr/share/doc/HTML/pt_BR/blinken/blinken_nickprompt.png
-/usr/share/doc/HTML/pt_BR/blinken/blinken_quitbutton.png
 /usr/share/doc/HTML/pt_BR/blinken/index.cache.bz2
 /usr/share/doc/HTML/pt_BR/blinken/index.docbook
 /usr/share/doc/HTML/sv/blinken/blinken1.png
