@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : blinken
-Version  : 20.12.0
-Release  : 25
-URL      : https://download.kde.org/stable/release-service/20.12.0/src/blinken-20.12.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.12.0/src/blinken-20.12.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.12.0/src/blinken-20.12.0.tar.xz.sig
+Version  : 20.12.1
+Release  : 26
+URL      : https://download.kde.org/stable/release-service/20.12.1/src/blinken-20.12.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.12.1/src/blinken-20.12.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.12.1/src/blinken-20.12.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -70,15 +70,15 @@ locales components for the blinken package.
 
 
 %prep
-%setup -q -n blinken-20.12.0
-cd %{_builddir}/blinken-20.12.0
+%setup -q -n blinken-20.12.1
+cd %{_builddir}/blinken-20.12.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1607703367
+export SOURCE_DATE_EPOCH=1610037354
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -94,12 +94,12 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1607703367
+export SOURCE_DATE_EPOCH=1610037354
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/blinken
-cp %{_builddir}/blinken-20.12.0/COPYING %{buildroot}/usr/share/package-licenses/blinken/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
-cp %{_builddir}/blinken-20.12.0/COPYING-sjfonts %{buildroot}/usr/share/package-licenses/blinken/e37be2b6aadc8073c4a4aa68ac29a16b19d03b74
-cp %{_builddir}/blinken-20.12.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/blinken/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/blinken-20.12.1/COPYING %{buildroot}/usr/share/package-licenses/blinken/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
+cp %{_builddir}/blinken-20.12.1/COPYING-sjfonts %{buildroot}/usr/share/package-licenses/blinken/e37be2b6aadc8073c4a4aa68ac29a16b19d03b74
+cp %{_builddir}/blinken-20.12.1/COPYING.DOC %{buildroot}/usr/share/package-licenses/blinken/1bd373e4851a93027ba70064bd7dbdc6827147e1
 pushd clr-build
 %make_install
 popd
@@ -138,6 +138,7 @@ popd
 /usr/share/doc/HTML/ca/blinken/blinken1.png
 /usr/share/doc/HTML/ca/blinken/blinken2.png
 /usr/share/doc/HTML/ca/blinken/blinken_accesskeys.png
+/usr/share/doc/HTML/ca/blinken/blinken_helpbutton.png
 /usr/share/doc/HTML/ca/blinken/blinken_nickprompt.png
 /usr/share/doc/HTML/ca/blinken/index.cache.bz2
 /usr/share/doc/HTML/ca/blinken/index.docbook
