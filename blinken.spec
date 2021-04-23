@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : blinken
-Version  : 20.12.3
-Release  : 27
-URL      : https://download.kde.org/stable/release-service/20.12.3/src/blinken-20.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.12.3/src/blinken-20.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.12.3/src/blinken-20.12.3.tar.xz.sig
+Version  : 21.04.0
+Release  : 28
+URL      : https://download.kde.org/stable/release-service/21.04.0/src/blinken-21.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.04.0/src/blinken-21.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.04.0/src/blinken-21.04.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : GFDL-1.2 GPL-2.0
+License  : CC0-1.0 GPL-2.0
 Requires: blinken-bin = %{version}-%{release}
 Requires: blinken-data = %{version}-%{release}
 Requires: blinken-license = %{version}-%{release}
@@ -70,15 +70,15 @@ locales components for the blinken package.
 
 
 %prep
-%setup -q -n blinken-20.12.3
-cd %{_builddir}/blinken-20.12.3
+%setup -q -n blinken-21.04.0
+cd %{_builddir}/blinken-21.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1618648231
+export SOURCE_DATE_EPOCH=1619200675
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -94,12 +94,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1618648231
+export SOURCE_DATE_EPOCH=1619200675
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/blinken
-cp %{_builddir}/blinken-20.12.3/COPYING %{buildroot}/usr/share/package-licenses/blinken/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
-cp %{_builddir}/blinken-20.12.3/COPYING-sjfonts %{buildroot}/usr/share/package-licenses/blinken/e37be2b6aadc8073c4a4aa68ac29a16b19d03b74
-cp %{_builddir}/blinken-20.12.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/blinken/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/blinken-21.04.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/blinken/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
+cp %{_builddir}/blinken-21.04.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/blinken/3e8971c6c5f16674958913a94a36b1ea7a00ac46
 pushd clr-build
 %make_install
 popd
@@ -197,9 +196,8 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/blinken/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
-/usr/share/package-licenses/blinken/1bd373e4851a93027ba70064bd7dbdc6827147e1
-/usr/share/package-licenses/blinken/e37be2b6aadc8073c4a4aa68ac29a16b19d03b74
+/usr/share/package-licenses/blinken/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+/usr/share/package-licenses/blinken/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
 
 %files locales -f blinken.lang
 %defattr(-,root,root,-)
