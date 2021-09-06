@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : blinken
-Version  : 21.04.2
-Release  : 29
-URL      : https://download.kde.org/stable/release-service/21.04.2/src/blinken-21.04.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.04.2/src/blinken-21.04.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.04.2/src/blinken-21.04.2.tar.xz.sig
+Version  : 21.08.1
+Release  : 30
+URL      : https://download.kde.org/stable/release-service/21.08.1/src/blinken-21.08.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.08.1/src/blinken-21.08.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.08.1/src/blinken-21.08.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 GFDL-1.2 GPL-2.0
@@ -70,39 +70,39 @@ locales components for the blinken package.
 
 
 %prep
-%setup -q -n blinken-21.04.2
-cd %{_builddir}/blinken-21.04.2
+%setup -q -n blinken-21.08.1
+cd %{_builddir}/blinken-21.08.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1623360263
+export SOURCE_DATE_EPOCH=1630900712
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1623360263
+export SOURCE_DATE_EPOCH=1630900712
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/blinken
-cp %{_builddir}/blinken-21.04.2/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/blinken/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
-cp %{_builddir}/blinken-21.04.2/LICENSES/GFDL-1.2-only.txt %{buildroot}/usr/share/package-licenses/blinken/7b300def279cc0c38b84d3351f68d558cc01ad61
-cp %{_builddir}/blinken-21.04.2/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/blinken/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/blinken-21.04.2/LICENSES/LicenseRef-SJFonts.txt %{buildroot}/usr/share/package-licenses/blinken/0018a9a18b50c9dcea23b1178ba98063b5a9b018
-cp %{_builddir}/blinken-21.04.2/LICENSES/LicenseRef-SJFonts.txt %{buildroot}/usr/share/package-licenses/blinken/0018a9a18b50c9dcea23b1178ba98063b5a9b018
-cp %{_builddir}/blinken-21.04.2/fonts/steve.ttf.license %{buildroot}/usr/share/package-licenses/blinken/67bc81af1c395d6bd93b6687ff4eb1c15fe8a6f9
+cp %{_builddir}/blinken-21.08.1/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/blinken/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
+cp %{_builddir}/blinken-21.08.1/LICENSES/GFDL-1.2-only.txt %{buildroot}/usr/share/package-licenses/blinken/7b300def279cc0c38b84d3351f68d558cc01ad61
+cp %{_builddir}/blinken-21.08.1/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/blinken/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/blinken-21.08.1/LICENSES/LicenseRef-SJFonts.txt %{buildroot}/usr/share/package-licenses/blinken/0018a9a18b50c9dcea23b1178ba98063b5a9b018
+cp %{_builddir}/blinken-21.08.1/LICENSES/LicenseRef-SJFonts.txt %{buildroot}/usr/share/package-licenses/blinken/0018a9a18b50c9dcea23b1178ba98063b5a9b018
+cp %{_builddir}/blinken-21.08.1/fonts/steve.ttf.license %{buildroot}/usr/share/package-licenses/blinken/67bc81af1c395d6bd93b6687ff4eb1c15fe8a6f9
 pushd clr-build
 %make_install
 popd
