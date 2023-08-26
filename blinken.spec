@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : blinken
-Version  : 23.04.3
-Release  : 55
-URL      : https://download.kde.org/stable/release-service/23.04.3/src/blinken-23.04.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.04.3/src/blinken-23.04.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.04.3/src/blinken-23.04.3.tar.xz.sig
+Version  : 23.08.0
+Release  : 56
+URL      : https://download.kde.org/stable/release-service/23.08.0/src/blinken-23.08.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.08.0/src/blinken-23.08.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.08.0/src/blinken-23.08.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 GFDL-1.2 GPL-2.0
@@ -74,15 +74,15 @@ locales components for the blinken package.
 
 
 %prep
-%setup -q -n blinken-23.04.3
-cd %{_builddir}/blinken-23.04.3
+%setup -q -n blinken-23.08.0
+cd %{_builddir}/blinken-23.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1688846421
+export SOURCE_DATE_EPOCH=1693010991
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -115,7 +115,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1688846421
+export SOURCE_DATE_EPOCH=1693010991
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/blinken
 cp %{_builddir}/blinken-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/blinken/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
