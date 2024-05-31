@@ -9,7 +9,7 @@
 #
 Name     : blinken
 Version  : 24.05.0
-Release  : 67
+Release  : 68
 URL      : https://download.kde.org/stable/release-service/24.05.0/src/blinken-24.05.0.tar.xz
 Source0  : https://download.kde.org/stable/release-service/24.05.0/src/blinken-24.05.0.tar.xz
 Source1  : https://download.kde.org/stable/release-service/24.05.0/src/blinken-24.05.0.tar.xz.sig
